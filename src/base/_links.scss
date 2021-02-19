@@ -1,0 +1,14 @@
+@use 'src/primitives/link';
+
+a {
+  @include link.base;
+}
+
+a:not([class]) {
+  @include link.default;
+}
+
+[data-sauce-inverted-text] a:not([class]),
+a[data-sauce-inverted-text] {
+  @include link.inverted;
+}

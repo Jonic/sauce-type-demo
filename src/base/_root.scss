@@ -1,0 +1,22 @@
+@use 'src/mixins/font';
+@use 'src/mixins/prop';
+@use 'src/tokens/font-weight';
+
+html {
+  @include font.size(clamp(1em, 3vmin, 1.5em), 1em);
+}
+
+body {
+  @include font.size(var(--font-size-base));
+
+  background-color: #fff;
+  color: #222;
+  font-display: swap;
+  font-family: Roboto, sans-serif !important;
+  font-optical-sizing: none;
+  font-weight: 400;
+  font-variant-ligatures: none;
+  line-height: 1.4;
+  position: relative;
+  text-size-adjust: 100%;
+}

@@ -1,0 +1,11 @@
+@use 'src/mixins/prop';
+@use 'src/mixins/margin';
+@use 'src/mixins/font';
+
+@mixin primitive {
+  @include font.use('u-2');
+  @include prop.define(font-weight, 700);
+  @include prop.define(line-height, 1.2);
+  @include margin.t('bee');
+  @include margin.b('ant');
+}

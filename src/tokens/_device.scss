@@ -1,0 +1,18 @@
+/**
+* @tokens Breakpoint
+*/
+$phone-portrait:   0      !default;
+$phone-landscape:  600px  !default;
+$tablet-portrait:  768px  !default;
+$tablet-landscape: 1024px !default;
+$laptop:           1200px !default;
+$desktop:          1440px !default;
+
+$categories: (
+  'phone-portrait',
+  'phone-landscape',
+  'tablet-portrait',
+  'tablet-landscape',
+  'laptop',
+  'desktop'
+);

@@ -1,0 +1,7 @@
+@use 'src/mixins/utilities';
+
+.u-screen-reader-only,
+.u-visually-hidden,
+[data-sauce-screen-reader-only] {
+  @include utilities.screen-reader-only;
+}

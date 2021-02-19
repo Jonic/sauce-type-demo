@@ -1,0 +1,12 @@
+@mixin define($name, $value) {
+  @include set($name, $value);
+  @include use($name);
+}
+
+@mixin set($name, $value) {
+  --#{$name}: #{$value};
+}
+
+@mixin use($name) {
+  #{$name}: var(--#{$name});
+}

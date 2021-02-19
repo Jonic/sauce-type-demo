@@ -1,0 +1,49 @@
+@use 'sass:map';
+@use 'sass:meta';
+@use 'lib/responsive-values';
+@use 'lib/validation';
+@use 'src/mixins/prop';
+@use 'src/tokens/spacing';
+
+$valid-properties: (
+  'column-gap',
+  'gap',
+  'grid-column-gap',
+  'grid-gap',
+  'grid-row-gap',
+  'margin',
+  'margin-top',
+  'margin-bottom',
+  'margin-left',
+  'margin-right',
+  'margin-inline',
+  'margin-inline-end',
+  'margin-inline-start',
+  'margin-block',
+  'margin-block-end',
+  'margin-block-start',
+  'padding',
+  'padding-top',
+  'padding-bottom',
+  'padding-left',
+  'padding-right',
+  'padding-inline',
+  'padding-inline-end',
+  'padding-inline-start',
+  'padding-block',
+  'padding-block-end',
+  'padding-block-start',
+  'row-gap'
+);
+
+@mixin output($properties, $value) {
+  @if (meta.type-of($properties) == 'string') {
+    $properties: [$properties];
+  }
+
+  @include validation.property-allowed($properties, $valid-properties);
+
+  @each $property in $properties {
+    @include prop.define($property, map.get(spacing.$map, $value));
+  }
+}

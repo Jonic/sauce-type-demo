@@ -1,0 +1,70 @@
+@use 'sass:list';
+@use 'sass:map';
+@use 'sass:math';
+@use 'src/tokens/device';
+
+@mixin high-dpi {
+  @include mq('min-resolution', 2dpi) {
+    @content;
+  }
+}
+
+@mixin mq($metric, $value: null) {
+  @media only screen and ($metric: $value) {
+    @content;
+  }
+}
+
+@mixin reduced-motion {
+  @include mq('prefers-reduced-motion', reduce) {
+    @content;
+  }
+}
+
+@mixin min-width($value) {
+  @if (math.unit($value) != 'px') {
+    @warn "Please specify min-width value with in `px`";
+  }
+
+  @include mq('min-width', $value) {
+    @content;
+  }
+}
+
+@mixin respond-to($category) {
+  @if list.index(device.$categories, $category) == null {
+    @error "Invalid device: #{$category}";
+  }
+
+  $metric: min-width;
+  $value: 0px;
+
+  @if $category == 'phone-portrait' {
+    $metric: max-width;
+    $value: device.$phone-portrait;
+  }
+
+  @if $category == 'phone-landscape' {
+    $value: device.$phone-landscape;
+  }
+
+  @if $category == 'tablet-portrait' {
+    $value: device.$tablet-portrait;
+  }
+
+  @if $category == 'tablet-landscape' {
+    $value: device.$tablet-landscape;
+  }
+
+  @if $category == 'laptop' {
+    $value: device.$laptop;
+  }
+
+  @if $category == 'desktop' {
+    $value: device.$desktop;
+  }
+
+  @include mq($metric, $value) {
+    @content;
+  }
+}

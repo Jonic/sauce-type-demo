@@ -1,0 +1,4 @@
+{
+  "plugins": ["babel-plugin-resolve-config-json"],
+  "presets": ["@babel/preset-env"]
+}

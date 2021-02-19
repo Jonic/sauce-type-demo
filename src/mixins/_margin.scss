@@ -1,0 +1,33 @@
+@use 'src/mixins/spacing';
+
+@mixin reset {
+  margin: 0;
+}
+
+@mixin all($value) {
+  @include spacing.output('margin', $value);
+}
+
+@mixin inline($value) {
+  @include spacing.output([ 'margin-left', 'margin-right', 'margin-inline' ], $value);
+}
+
+@mixin block($value) {
+  @include spacing.output([ 'margin-top', 'margin-bottom', 'margin-block' ], $value);
+}
+
+@mixin t($value) {
+  @include spacing.output([ 'margin-top', 'margin-block-start' ], $value);
+}
+
+@mixin r($value) {
+  @include spacing.output([ 'margin-right', 'margin-inline-end' ], $value);
+}
+
+@mixin b($value) {
+  @include spacing.output([ 'margin-bottom', 'margin-block-end' ], $value);
+}
+
+@mixin l($value) {
+  @include spacing.output([ 'margin-left', 'margin-inline-start' ], $value);
+}

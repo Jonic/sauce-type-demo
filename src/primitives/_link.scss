@@ -1,0 +1,50 @@
+@use 'src/tokens/color-greyscale';
+@use 'src/tokens/raspberry-pi/color-brand';
+@use 'src/tokens/raspberry-pi/color-palette';
+@use 'src/tokens/transition-duration';
+@use 'src/tokens/transition-timing';
+
+@mixin base {
+  text-decoration: underline;
+  text-decoration-skip-ink: auto;
+  transition-duration: transition-duration.$short;
+  transition-property: color;
+  transition-timing-function: transition-timing.$eased;
+}
+
+@mixin default {
+  color: color-palette.$navy;
+
+  &:visited {
+    color: color-palette.$violet;
+  }
+
+  &:focus, &:hover, &:active {
+    color: color-brand.$primary;
+  }
+}
+
+@mixin inverted {
+  color: rgba(color-greyscale.$white, 0.8);
+
+  &:visited {
+    color: rgba(color-greyscale.$white, 0.8);
+  }
+
+  &:focus, &:hover, &:active {
+    color: color-greyscale.$white;
+  }
+}
+
+@mixin big-click {
+  &::after {
+    bottom: 0;
+    content: ' ';
+    display: block;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 1;
+  }
+}

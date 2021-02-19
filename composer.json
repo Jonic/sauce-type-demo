@@ -1,0 +1,23 @@
+{
+  "name": "rpf/sauce-type-demo",
+  "description": "Homepage Prototype",
+  "type": "project",
+  "homepage": "https://rp-sauce-type-demo.heroku.app/",
+  "authors": [
+    {
+      "name": "Jonic Linley",
+      "email": "jonic@100yen.co.uk",
+      "homepage": "https://www.100yen.co.uk/"
+    }
+  ],
+  "support": {
+    "issues": "https://github.com/RaspberryPiFoundation/sauce-type-demo/issues/",
+    "source": "https://github.com/RaspberryPiFoundation/sauce-type-demo/"
+  },
+  "require": {
+    "php": ">=7.1.0"
+  },
+  "config": {
+    "optimize-autoloader": true
+  }
+}

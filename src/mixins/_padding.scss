@@ -1,0 +1,33 @@
+@use 'src/mixins/spacing';
+
+@mixin reset {
+  padding: 0;
+}
+
+@mixin all($value) {
+  @include spacing.output('padding', $value);
+}
+
+@mixin inline($value) {
+  @include spacing.output([ 'padding-left', 'padding-right', 'padding-inline' ], $value);
+}
+
+@mixin block($value) {
+  @include spacing.output([ 'padding-top', 'padding-bottom', 'padding-block' ], $value);
+}
+
+@mixin t($value) {
+  @include spacing.output([ 'padding-top', 'padding-block-start' ], $value);
+}
+
+@mixin r($value) {
+  @include spacing.output([ 'padding-right', 'padding-inline-end' ], $value);
+}
+
+@mixin b($value) {
+  @include spacing.output([ 'padding-bottom', 'padding-block-end' ], $value);
+}
+
+@mixin l($value) {
+  @include spacing.output([ 'padding-left', 'padding-inline-start' ], $value);
+}
